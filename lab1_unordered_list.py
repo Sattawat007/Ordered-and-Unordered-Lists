@@ -60,22 +60,33 @@ class UnorderedList:
             previous.next = current.next
 
     def __str__(self):
-        """
-        TODO: ภารกิจที่ 1
-        ท่องลิสต์และสร้างสตริงเพื่อแสดงผล เช่น "[54, 26, 93]"
-        """
+        element = []
+        current = self.head
         # --- เริ่มเขียนโค้ดตรงนี้ ---
+
+        while current is not None:
+            element.append(str(current.data))
+            current = current.next
         
-        return "[]" 
+        return "["+", ".join(element) +"]"
         
         # --- สิ้นสุดการเขียนโค้ด ---
 
     def append(self, item):
-        """
-        TODO: ภารกิจที่ 2
-        เพิ่ม item ไปที่ตำแหน่งสุดท้ายของลิสต์
-        *คำใบ้: อย่าลืมจัดการกรณีที่ลิสต์ยังว่างอยู่ (self.head is None)*
-        """
+        temp = Node(item)
+
+        if self.head is None:
+            self.head = temp
+            return
+
+        current = self.head
+        while current.next is not None:
+            current = current.next 
+
+        current.next = temp
+
+
+
         # --- เริ่มเขียนโค้ดตรงนี้ ---
         
         pass
